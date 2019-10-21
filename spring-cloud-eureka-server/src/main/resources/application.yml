@@ -20,7 +20,7 @@ eureka:
 #权限认证（默认就是开启的）
 security:
   basic:
-    enabled: false
+    enabled: true
   user:
     name: eureka
     password: 123456
