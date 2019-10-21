@@ -1,0 +1,11 @@
+server:
+  port: 7901
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch: DEBUG
+user:
+  userServicePath: http://localhost:7900/simple/
