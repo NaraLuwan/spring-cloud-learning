@@ -5,6 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * @author Luwan
+ * @date 2019/10/28
+ */
 @SpringBootApplication
 public class ConsumerApplicationStarter {
 
