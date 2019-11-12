@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: gateway-zuul
+server:
+  port: 7777
+ribbon:
+  eurka:
+    enabled: false
+
+#### 网关路由相关配置
+zuul:
+  routes:
+    producer:
+      path: /producer/**
+      # 服务注册中心的服务名
+      serviceId: MODULE-SERVICE-PROVIDER
+      # 移除前缀
+      stripPrefix: true
+      # 不过滤Cookie, Set-Cookie, Authorization
+      customSensitiveHeaders: true
+
+  # 是否开启debug日志
+  debug:
+    request: true
+  include-debug-header: true
+
+
+# 注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+  instance:
+    instance-id: gateway-zuul
+    #访问路径可以显示IP地址
+    prefer-ip-address: true
