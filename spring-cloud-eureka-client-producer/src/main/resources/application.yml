@@ -20,13 +20,15 @@ logging:
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
     com.itmuch: DEBUG
 
-# Eureka 服务提供者配置
+
+
+# 注册中心
 eureka:
   client:
     service-url:
-      #注册中心的地址
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://10.201.169.147:8761/eureka/
   instance:
-      instance-id: MODULE-SERVICE-PROVIDER
-      #访问路径可以显示IP地址
-      prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+    #访问路径可以显示IP地址
+    prefer-ip-address: true
+    ip-address: ${spring.cloud.client.ipAddress}
