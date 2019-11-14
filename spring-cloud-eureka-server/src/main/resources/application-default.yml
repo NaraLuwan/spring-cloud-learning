@@ -1,0 +1,14 @@
+#### 默认单节点最简配置，单节点启动时指定spring.profiles.active=default即可
+spring:
+  profiles:
+    active: default
+server:
+  port: 8761
+
+# 注册中心相关配置
+eureka:
+  client:
+    # 不注册自己
+    registerWithEureka: false
+    # 不获取服务列表
+    fetch-registry: false
