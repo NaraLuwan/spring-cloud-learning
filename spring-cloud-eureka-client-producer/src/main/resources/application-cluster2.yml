@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: module-service-provider
+  zipkin:
+    base-url: http://localhost:9000
+  sleuth:
+    sampler:
+      percentage: 1.0
+
   jpa:
     generate-ddl: false
     show-sql: true

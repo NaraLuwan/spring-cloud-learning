@@ -22,6 +22,7 @@
         <module>spring-cloud-eureka-client-consumer</module>
         <module>spring-cloud-eureka-client-producer</module>
         <module>spring-cloud-gateway-zuul</module>
+        <module>spring-cloud-sleuth-zipkin</module>
     </modules>
 
     <dependencyManagement>
