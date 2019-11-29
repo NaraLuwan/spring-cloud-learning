@@ -12,3 +12,4 @@ Record the process of learning spring cloud
 - 配置中心
 - 服务容错
 - 监控&统计
+- 链路追踪
