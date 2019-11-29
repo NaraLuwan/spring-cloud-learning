@@ -3,9 +3,6 @@ spring:
     name: gateway-zuul
 server:
   port: 7777
-ribbon:
-  eurka:
-    enabled: false
 
 #### 网关路由相关配置
 zuul:
@@ -24,8 +21,34 @@ zuul:
     request: true
   include-debug-header: true
 
+  # 是否开启路由重试
+  retryable: true
 
-# 注册中心
+#### 负载均衡相关配置
+ribbon:
+  # 连接超时时间(ms)
+  ConnectTimeout: 1000
+  # 通信超时时间(ms)
+  ReadTimeout: 2000
+  # 是否对所有操作重试
+  OkToRetryOnAllOperations: true
+  # 同一服务不同实例的重试次数
+  MaxAutoRetriesNextServer: 1
+  # 同一实例的重试次数（默认为0）
+  MaxAutoRetries: 0
+  ### ribbonTimeout = (ReadTimeout + ConnectTimeout) * (MaxAutoRetries + 1) * (maxAutoRetriesNextServer + 1);
+
+#### 熔断机制相关配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            # 熔断超时时长，需要大于ribbonTimeout (ms)
+            timeoutInMillisecond: 60000
+
+#### 注册中心相关配置
 eureka:
   client:
     service-url:
