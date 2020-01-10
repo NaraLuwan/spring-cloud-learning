@@ -8,7 +8,12 @@ spring:
     sampler:
       # 采样比例（0.0-1.0之间）
       percentage: 1.0
-
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          zkNodes: localhost:2181
 server:
   port: 7777
 
@@ -30,7 +35,7 @@ zuul:
   include-debug-header: true
 
   # 是否开启路由重试
-  retryable: true
+  retryable: false
 
 #### 负载均衡相关配置
 ribbon:

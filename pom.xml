@@ -23,6 +23,7 @@
         <module>spring-cloud-eureka-client-producer</module>
         <module>spring-cloud-gateway-zuul</module>
         <module>spring-cloud-sleuth-zipkin</module>
+        <module>spring-boot-base</module>
     </modules>
 
     <dependencyManagement>
@@ -33,6 +34,11 @@
                 <version>Brixton.SR5</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <optional>true</optional>
             </dependency>
         </dependencies>
     </dependencyManagement>

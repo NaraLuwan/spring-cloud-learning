@@ -3,7 +3,7 @@ spring:
   application:
     name: eureka-server
   profiles:
-    active: cluster1
+    active: cluster2
 server:
   port: 8762
 
