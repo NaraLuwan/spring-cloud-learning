@@ -18,14 +18,8 @@ public class UserController {
   @Autowired
   private UserRepository userRepository;
 
-  //@GetMapping("/simple/{id}")
+  @GetMapping("/simple/{id}")
   public User findById(@PathVariable Long id) {
-    return this.userRepository.findOne(id);
-  }
-
-  @GetMapping("/simple_test_user/{id}")
-  public User findById2(@PathVariable Long id, @RequestParam(name = "paramJson") String paramJson) {
-    System.out.println(paramJson);
     return this.userRepository.findOne(id);
   }
 }

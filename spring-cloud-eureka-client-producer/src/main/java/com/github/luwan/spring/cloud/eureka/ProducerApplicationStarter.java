@@ -10,7 +10,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
-//@EnableAdminServer
 public class ProducerApplicationStarter {
 
 	public static void main(String[] args) {

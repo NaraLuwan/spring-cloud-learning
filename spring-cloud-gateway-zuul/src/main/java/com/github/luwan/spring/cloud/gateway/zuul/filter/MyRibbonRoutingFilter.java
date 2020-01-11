@@ -2,6 +2,8 @@ package com.github.luwan.spring.cloud.gateway.zuul.filter;
 
 import com.netflix.hystrix.exception.HystrixRuntimeException;
 import com.netflix.zuul.context.RequestContext;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.filters.ProxyRequestHelper;
 import org.springframework.cloud.netflix.zuul.filters.route.*;
@@ -17,9 +19,10 @@ import java.util.Map;
 /**
  * 解决无法同时转发 Multipart 和 JSON 请求的问题
  *
- * @author hechao
+ * @author luwan
  * @date 2019/11/18
  */
+@Slf4j
 @Configuration
 public class MyRibbonRoutingFilter extends RibbonRoutingFilter {
 
@@ -41,16 +44,16 @@ public class MyRibbonRoutingFilter extends RibbonRoutingFilter {
         } else {
             commandFactory = this.httpClientRibbonCommandFactory;
         }
-        System.out.println("RibbonCommandFactory is " + commandFactory.getClass().getCanonicalName());
 
         RibbonCommand command = commandFactory.create(context);
         Map<String, Object> info = this.helper.debug(context.getVerb(), context.getUri(), context.getHeaders(), context.getParams(), context.getRequestEntity());
         try {
+            log.info("forward by {} url={}", commandFactory.getClass().getCanonicalName(), StringUtils.defaultIfBlank(context.getUri(), "null"));
             ClientHttpResponse response = command.execute();
             this.helper.appendDebug(info, response.getStatusCode().value(), response.getHeaders());
             return response;
-        } catch (HystrixRuntimeException ex) {
-            return handleException(info, ex);
+        } catch (HystrixRuntimeException e) {
+            return handleException(info, e);
         }
     }
 

@@ -13,6 +13,7 @@
     <artifactId>spring-cloud-sleuth-zipkin</artifactId>
 
     <dependencies>
+        <!-- spring cloud base-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
