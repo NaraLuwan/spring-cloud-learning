@@ -1,12 +1,12 @@
 # SpringCloudLearning
 Record the process of learning spring cloud
 
-### 依赖环境
-- Git
-- Java8
-- Maven
+### 依赖版本
+- JDK8
+- Spring Boot 1.4.2.RELEASE
+- Spring Cloud Brixton.SR5
 
-### TODO
+### demo
 - 注册中心
 - 动态网关
 - 配置中心
