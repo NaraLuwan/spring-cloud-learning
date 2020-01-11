@@ -23,7 +23,6 @@
         <module>spring-cloud-eureka-client-producer</module>
         <module>spring-cloud-gateway-zuul</module>
         <module>spring-cloud-sleuth-zipkin</module>
-        <module>spring-boot-base</module>
     </modules>
 
     <dependencyManagement>
